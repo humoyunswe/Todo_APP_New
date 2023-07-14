@@ -1,0 +1,25 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block heading %}
+    <title>Login Page</title>
+{% endblock heading %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+                <div class="card mb-3 mx-auto p-3" style="width: 18rem; height: 30rem;border-radius: 25px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);background-color: #278D8D;border: 3px solid #000">
+                    <legend class="d-flex justify-content-center mt-4 mb-4">Log In</legend>
+                    {{ form|crispy }}
+                    <div class="form-group d-flex justify-content-center mt-5">
+                        <button class="btn btn-outline-info" type="submit">Login</button>
+                    </div>
+                </div>
+        </form>
+        <div class="pt-3 d-flex justify-content-center">
+            <small class="text-muted">
+                Akauntingiz yo'qmi hali? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'todo/base.html' %}
+
+{% block heading %}
+    <title>Home Page</title>
+{% endblock heading %}
+
+{% block content %}
+    <h1 class="text-center">Todo List:</h1>
+    {% for todo in todo_list %}
+        <div class="card mb-3 mx-auto" style="width: 18rem;border-radius: 25px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);background-color: #278D8D;border: 3px solid #000">
+            <img src="media/qrcode_{{ todo.id }}.png" class="card-img-top" style="border-radius: 25px" alt="QR Code">
+         <div class="card-body text-center">
+             <h3 class="card-title">{{ todo.title }}</h3>
+             <p class="card-text">{{ todo.link }}</p>
+         </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="border-bottom-left-radius: 25px;border-bottom-right-radius: 25px">{{ todo.end }}</li>
+         </ul>
+        </div>
+    {% endfor %}
+{% endblock content %}
